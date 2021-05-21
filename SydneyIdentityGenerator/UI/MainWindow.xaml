@@ -1,0 +1,22 @@
+﻿<Window x:Class="UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="textbox_TableName"></TextBox>
+        <TextBox x:Name="textbox_DatabaseName"></TextBox>
+        <ComboBox x:Name="cb_Field1"></ComboBox>
+        <ComboBox x:Name="cb_Field2"></ComboBox>
+        <ComboBox x:Name="cb_Field3"></ComboBox>
+        <ComboBox x:Name="cb_Field4"></ComboBox>
+        <ComboBox x:Name="cb_Field5"></ComboBox>
+        <ComboBox x:Name="cb_Field6"></ComboBox>
+        <ComboBox x:Name="cb_Field7"></ComboBox>
+        <ComboBox x:Name="cb_Field8"></ComboBox>
+        <Button x:Name="button_GenerateSQL" Content="Generate SQL file"></Button>
+    </Grid>
+</Window>
