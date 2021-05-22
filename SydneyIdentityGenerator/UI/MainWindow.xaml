@@ -5,37 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="300">
-    <Grid ShowGridLines="True">
+        Title="MainWindow" Height="300" Width="500" FontSize="16">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
 
+            <RowDefinition Height="1.5*"></RowDefinition>
+
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+
+            <RowDefinition Height="1.5*"></RowDefinition>
+
+            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Label Content="Name of database" FontSize="16" Grid.Row="0" Grid.Column="0"></Label>
-        <TextBox  FontSize="16" Grid.Row="0" Grid.Column="1"></TextBox>
+        <Label Content="Number of records to generate" Grid.Row="0" Grid.Column="0"></Label>
+        <TextBox Text="1" PreviewTextInput="NumberValidationTextBox" Grid.Row="0" Grid.Column="1"></TextBox>
 
-        <Label Content="Name of table" FontSize="16" Grid.Row="1" Grid.Column="0"></Label>
-        <TextBox FontSize="16" Grid.Row="1" Grid.Column="1"></TextBox>
+        <Label Content="Region" Grid.Row="1" Grid.Column="0"></Label>
+        <ComboBox x:Name="Cb_AvailableRegions" Grid.Row="1" Grid.Column="1"></ComboBox>
 
-        <Label Content="First field" FontSize="16" Grid.Row="2" Grid.Column="0"></Label>
-        <TextBox FontSize="16" Grid.Row="2" Grid.Column="1"></TextBox>
+        <CheckBox Margin="10" Content="First name" Grid.Row="3" Grid.Column="0"></CheckBox>
+        <CheckBox Margin="10" Content="Last name" Grid.Row="3" Grid.Column="1"></CheckBox>
 
-        <Label Content="Second field" FontSize="16" Grid.Row="3" Grid.Column="0"></Label>
-        <TextBox  FontSize="16" Grid.Row="3" Grid.Column="1"></TextBox>
+        <CheckBox Margin="10" Content="Gender" Grid.Row="4" Grid.Column="0"></CheckBox>
+        <CheckBox Margin="10" Content="Date of birth" Grid.Row="4" Grid.Column="1"></CheckBox>
 
-        <Label Content="Third field" FontSize="16" Grid.Row="4" Grid.Column="0"></Label>
-        <TextBox  FontSize="16" Grid.Row="4" Grid.Column="1"></TextBox>
+        <CheckBox Margin="10" Content="Email" Grid.Row="5" Grid.Column="0"></CheckBox>
+        <CheckBox Margin="10" Content="Phone number" Grid.Row="5" Grid.Column="1"></CheckBox>
 
-        <Button Content="Generate CSV file" FontSize="16" Grid.Row="5" Grid.Column="0"></Button>
+        <Button x:Name="Btn_GenerateCSV" Content="Generate CSV file" Grid.Row="7" Grid.Column="1"
+                Click="Btn_GenerateCSV_Click"></Button>
     </Grid>
 </Window>
