@@ -1,4 +1,6 @@
-﻿namespace Controller
+﻿using Model;
+
+namespace Controller
 {
     public class Control
     {
@@ -12,31 +14,33 @@
 
         public void GeneratePersonsAndWriteToCsv(int amountToGenerate, string parameters)
         {
-            GeneratePersons(amountToGenerate, parameters);
+            Person[] records = GeneratePersons(amountToGenerate);
 
-            CsvFileWriter.Write("test.csv", parameters, amountToGenerate);
+            CsvFileWriter.Write("text.csv", parameters, records);
         }
 
-        private void GeneratePersons(int amountToGenerate, string parameters)
+        private Person[] GeneratePersons(int amountToGenerate)
         {
-            string gender;
-            string firstName;
-            string lastName;
-            string email;
-            string address;
-            string dateOfBirth;
-            string phoneNumber;
 
-            //gender firstname, lastname, email
-            gender = genderGenerator.GenerateGender();
-            firstName = nameGenerator.GenerateFirstName(gender);
-            lastName = nameGenerator.GenerateLastName();
-            email = emailGenerator.GenerateEmail(firstName, lastName);
+            //defining output
+            Person[] output = new Person[amountToGenerate];
 
-            //address, dateOfBirth, phoneNumber
-            phoneNumber = phoneNumberGenerator.GeneratePhoneNumber();
-            address = addressGenerator.GenerateRandomSydneyAddress();
-            dateOfBirth = dateOfBirthGenerator.GenerateRandomDate();
+            for (int i = 0; i < amountToGenerate; i++)
+            {
+                string gender = genderGenerator.GenerateGender();
+                string firstName = nameGenerator.GenerateFirstName(gender);
+                string lastName = nameGenerator.GenerateLastName();
+                string email = emailGenerator.GenerateEmail(firstName, lastName);
+                string address = addressGenerator.GenerateRandomSydneyAddress();
+                string phoneNumber = phoneNumberGenerator.GeneratePhoneNumber();
+                string dateOfBirth = dateOfBirthGenerator.GenerateRandomDate();
+
+                Person toAdd = new(firstName, lastName, address, phoneNumber, gender, email, dateOfBirth);
+                output[i] = toAdd;
+            }
+            return output;
         }
+
+
     }
 }

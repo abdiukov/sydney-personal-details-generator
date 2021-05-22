@@ -37,6 +37,7 @@ namespace UI
                 MessageBox.Show("Please enter a whole number into \"Number of records to generate\" field");
                 return;
             }
+
             if (CheckBox_FirstName.IsChecked == true)
             {
                 parameters += "first_name,";
@@ -45,21 +46,25 @@ namespace UI
             {
                 parameters += "last_name,";
             }
-            if (CheckBox_Gender.IsChecked == true)
+            if (CheckBox_Address.IsChecked == true)
             {
-                parameters += "gender";
+                parameters += "address";
+            }
+            if (CheckBox_PhoneNumber.IsChecked == true)
+            {
+                parameters += "phone_number";
             }
             if (CheckBox_DateOfBirth.IsChecked == true)
             {
                 parameters += "dob";
             }
+            if (CheckBox_Gender.IsChecked == true)
+            {
+                parameters += "gender";
+            }
             if (CheckBox_Email.IsChecked == true)
             {
                 parameters += "email";
-            }
-            if (CheckBox_PhoneNumber.IsChecked == true)
-            {
-                parameters += "phone_number";
             }
 
             if (parameters == "")

@@ -2,6 +2,21 @@
 {
     public class Person
     {
+        public override string ToString()
+        {
+            return FirstName + LastName + Address + PhoneNumber + DateOfBirth + Gender + Email;
+        }
+
+        public Person(string firstName, string lastName, string address, string phoneNumber, string gender, string email, string dateOfBirth)
+        {
+            FirstName = firstName;
+            LastName = lastName;
+            Address = address;
+            PhoneNumber = phoneNumber;
+            Gender = gender;
+            Email = email;
+            DateOfBirth = dateOfBirth;
+        }
 
         public string FirstName
         {
