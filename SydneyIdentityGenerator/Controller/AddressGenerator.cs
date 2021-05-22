@@ -8,11 +8,10 @@ namespace Controller
     {
         private readonly Random random = new();
         private const string SYDNEY_ADDRESSES_FILE_NAME = "sydney_addresses.txt";
-        private const int NUMBER_OF_LINES_SYDNEY_ADDRESSES_FILE = 1424149;
+        private const int NUMBER_OF_LINES_SYDNEY_ADDRESSES_FILE = 1424149 - 1;
         public string GenerateRandomSydneyAddress()
         {
-            int randomlyGeneratedLine = random.Next(0, NUMBER_OF_LINES_SYDNEY_ADDRESSES_FILE - 1);
-
+            int randomlyGeneratedLine = random.Next(0, NUMBER_OF_LINES_SYDNEY_ADDRESSES_FILE);
             return File.ReadLines(SYDNEY_ADDRESSES_FILE_NAME).Skip(randomlyGeneratedLine).First();
         }
     }

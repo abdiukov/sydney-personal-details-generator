@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ash\\Desktop\\SydIdentityGenerator\\SydneyIdentityGenerator\\UI\\UI.csproj": {}
+    "C:\\Users\\Ash\\Desktop\\GitHub\\SydneyAddressGenerator\\SydneyIdentityGenerator\\UI\\UI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ash\\Desktop\\SydIdentityGenerator\\SydneyIdentityGenerator\\UI\\UI.csproj": {
+    "C:\\Users\\Ash\\Desktop\\GitHub\\SydneyAddressGenerator\\SydneyIdentityGenerator\\UI\\UI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ash\\Desktop\\SydIdentityGenerator\\SydneyIdentityGenerator\\UI\\UI.csproj",
+        "projectUniqueName": "C:\\Users\\Ash\\Desktop\\GitHub\\SydneyAddressGenerator\\SydneyIdentityGenerator\\UI\\UI.csproj",
         "projectName": "UI",
-        "projectPath": "C:\\Users\\Ash\\Desktop\\SydIdentityGenerator\\SydneyIdentityGenerator\\UI\\UI.csproj",
+        "projectPath": "C:\\Users\\Ash\\Desktop\\GitHub\\SydneyAddressGenerator\\SydneyIdentityGenerator\\UI\\UI.csproj",
         "packagesPath": "C:\\Users\\Ash\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ash\\Desktop\\SydIdentityGenerator\\SydneyIdentityGenerator\\UI\\obj\\",
+        "outputPath": "C:\\Users\\Ash\\Desktop\\GitHub\\SydneyAddressGenerator\\SydneyIdentityGenerator\\UI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

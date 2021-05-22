@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ash\\Desktop\\SydIdentityGenerator\\SydneyIdentityGenerator\\Controller\\Controller.csproj": {}
+    "C:\\Users\\Ash\\Desktop\\GitHub\\SydneyAddressGenerator\\SydneyIdentityGenerator\\Controller\\Controller.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ash\\Desktop\\SydIdentityGenerator\\SydneyIdentityGenerator\\Controller\\Controller.csproj": {
+    "C:\\Users\\Ash\\Desktop\\GitHub\\SydneyAddressGenerator\\SydneyIdentityGenerator\\Controller\\Controller.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ash\\Desktop\\SydIdentityGenerator\\SydneyIdentityGenerator\\Controller\\Controller.csproj",
+        "projectUniqueName": "C:\\Users\\Ash\\Desktop\\GitHub\\SydneyAddressGenerator\\SydneyIdentityGenerator\\Controller\\Controller.csproj",
         "projectName": "Controller",
-        "projectPath": "C:\\Users\\Ash\\Desktop\\SydIdentityGenerator\\SydneyIdentityGenerator\\Controller\\Controller.csproj",
+        "projectPath": "C:\\Users\\Ash\\Desktop\\GitHub\\SydneyAddressGenerator\\SydneyIdentityGenerator\\Controller\\Controller.csproj",
         "packagesPath": "C:\\Users\\Ash\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ash\\Desktop\\SydIdentityGenerator\\SydneyIdentityGenerator\\Controller\\obj\\",
+        "outputPath": "C:\\Users\\Ash\\Desktop\\GitHub\\SydneyAddressGenerator\\SydneyIdentityGenerator\\Controller\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

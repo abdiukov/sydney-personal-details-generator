@@ -5,18 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <TextBox x:Name="textbox_TableName"></TextBox>
-        <TextBox x:Name="textbox_DatabaseName"></TextBox>
-        <ComboBox x:Name="cb_Field1"></ComboBox>
-        <ComboBox x:Name="cb_Field2"></ComboBox>
-        <ComboBox x:Name="cb_Field3"></ComboBox>
-        <ComboBox x:Name="cb_Field4"></ComboBox>
-        <ComboBox x:Name="cb_Field5"></ComboBox>
-        <ComboBox x:Name="cb_Field6"></ComboBox>
-        <ComboBox x:Name="cb_Field7"></ComboBox>
-        <ComboBox x:Name="cb_Field8"></ComboBox>
-        <Button x:Name="button_GenerateSQL" Content="Generate SQL file"></Button>
+        Title="MainWindow" Height="300" Width="300">
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+
+        </Grid.RowDefinitions>
+
+        <Label Content="Name of database" FontSize="16" Grid.Row="0" Grid.Column="0"></Label>
+        <TextBox  FontSize="16" Grid.Row="0" Grid.Column="1"></TextBox>
+
+        <Label Content="Name of table" FontSize="16" Grid.Row="1" Grid.Column="0"></Label>
+        <TextBox FontSize="16" Grid.Row="1" Grid.Column="1"></TextBox>
+
+        <Label Content="First field" FontSize="16" Grid.Row="2" Grid.Column="0"></Label>
+        <TextBox FontSize="16" Grid.Row="2" Grid.Column="1"></TextBox>
+
+        <Label Content="Second field" FontSize="16" Grid.Row="3" Grid.Column="0"></Label>
+        <TextBox  FontSize="16" Grid.Row="3" Grid.Column="1"></TextBox>
+
+        <Label Content="Third field" FontSize="16" Grid.Row="4" Grid.Column="0"></Label>
+        <TextBox  FontSize="16" Grid.Row="4" Grid.Column="1"></TextBox>
+
+        <Button Content="Generate CSV file" FontSize="16" Grid.Row="5" Grid.Column="0"></Button>
     </Grid>
 </Window>
