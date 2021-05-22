@@ -1,0 +1,16 @@
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Controller\bin\Debug\net5.0\sydney_addresses.txt
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Controller\bin\Debug\net5.0\Controller.deps.json
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Controller\bin\Debug\net5.0\Controller.dll
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Controller\bin\Debug\net5.0\ref\Controller.dll
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Controller\bin\Debug\net5.0\Controller.pdb
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Controller\obj\Debug\net5.0\Controller.csprojAssemblyReference.cache
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Controller\obj\Debug\net5.0\Controller.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Controller\obj\Debug\net5.0\Controller.AssemblyInfoInputs.cache
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Controller\obj\Debug\net5.0\Controller.AssemblyInfo.cs
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Controller\obj\Debug\net5.0\Controller.csproj.CoreCompileInputs.cache
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Controller\obj\Debug\net5.0\Controller.dll
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Controller\obj\Debug\net5.0\ref\Controller.dll
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Controller\obj\Debug\net5.0\Controller.pdb
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Controller\bin\Debug\net5.0\Model.dll
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Controller\bin\Debug\net5.0\Model.pdb
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Controller\obj\Debug\net5.0\Controller.csproj.CopyComplete

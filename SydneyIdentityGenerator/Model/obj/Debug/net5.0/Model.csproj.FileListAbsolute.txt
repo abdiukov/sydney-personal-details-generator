@@ -1,0 +1,12 @@
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Model\bin\Debug\net5.0\Model.deps.json
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Model\bin\Debug\net5.0\Model.dll
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Model\bin\Debug\net5.0\ref\Model.dll
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Model\bin\Debug\net5.0\Model.pdb
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Model\obj\Debug\net5.0\Model.csprojAssemblyReference.cache
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Model\obj\Debug\net5.0\Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Model\obj\Debug\net5.0\Model.AssemblyInfoInputs.cache
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Model\obj\Debug\net5.0\Model.AssemblyInfo.cs
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Model\obj\Debug\net5.0\Model.csproj.CoreCompileInputs.cache
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Model\obj\Debug\net5.0\Model.dll
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Model\obj\Debug\net5.0\ref\Model.dll
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\Model\obj\Debug\net5.0\Model.pdb

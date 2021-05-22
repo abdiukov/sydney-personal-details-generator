@@ -42,3 +42,11 @@ C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\UI\ob
 C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\UI\obj\Debug\net5.0-windows\ref\UI.dll
 C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\UI\obj\Debug\net5.0-windows\UI.pdb
 C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\UI\obj\Debug\net5.0-windows\UI.genruntimeconfig.cache
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\UI\bin\Debug\net5.0-windows\sydney_addresses.txt
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\UI\bin\Debug\net5.0-windows\CsvHelper.dll
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\UI\bin\Debug\net5.0-windows\RandomNameGeneratorLibrary.dll
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\UI\bin\Debug\net5.0-windows\Controller.dll
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\UI\bin\Debug\net5.0-windows\Controller.pdb
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\UI\obj\Debug\net5.0-windows\UI.csproj.CopyComplete
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\UI\bin\Debug\net5.0-windows\Model.dll
+C:\Users\Ash\Desktop\GitHub\SydneyAddressGenerator\SydneyIdentityGenerator\UI\bin\Debug\net5.0-windows\Model.pdb

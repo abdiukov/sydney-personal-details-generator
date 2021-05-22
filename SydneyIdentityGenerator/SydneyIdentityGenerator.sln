@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31313.79
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{43019F8D-C1DC-4F53-A9CE-D610590B2ED0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI", "UI\UI.csproj", "{43019F8D-C1DC-4F53-A9CE-D610590B2ED0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{32D6766B-C700-4ACE-9478-ED9C6FA17124}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Controller", "Controller\Controller.csproj", "{32D6766B-C700-4ACE-9478-ED9C6FA17124}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{11F22D63-E697-4C2E-98BC-47AFAC9A540B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{32D6766B-C700-4ACE-9478-ED9C6FA17124}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32D6766B-C700-4ACE-9478-ED9C6FA17124}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32D6766B-C700-4ACE-9478-ED9C6FA17124}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11F22D63-E697-4C2E-98BC-47AFAC9A540B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11F22D63-E697-4C2E-98BC-47AFAC9A540B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11F22D63-E697-4C2E-98BC-47AFAC9A540B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11F22D63-E697-4C2E-98BC-47AFAC9A540B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
