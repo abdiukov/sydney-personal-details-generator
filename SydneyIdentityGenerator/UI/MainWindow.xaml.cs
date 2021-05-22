@@ -1,4 +1,4 @@
-﻿using Model;
+﻿using Controller;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -11,8 +11,8 @@ namespace UI
     /// </summary>
     public partial class MainWindow : Window
     {
-        private protected Regex regex = new("[^0-9]+");
-        private protected Controller.Controller controller = new();
+        private readonly Regex regex = new("[^0-9]+");
+        private readonly Control controller = new();
 
         public MainWindow()
         {
@@ -28,41 +28,48 @@ namespace UI
 
         private void Btn_GenerateCSV_Click(object sender, RoutedEventArgs e)
         {
+            //defining
+            string parameters = "";
+
+            //validating user input
             if (!int.TryParse(Textbox_NumberOfRecords.Text, out int amountToGenerate))
             {
                 MessageBox.Show("Please enter a whole number into \"Number of records to generate\" field");
                 return;
             }
-
             if (CheckBox_FirstName.IsChecked == true)
             {
-                UserChoice.ChosenParameters.Add("first_name");
+                parameters += "first_name,";
             }
             if (CheckBox_LastName.IsChecked == true)
             {
-                UserChoice.ChosenParameters.Add("last_name");
+                parameters += "last_name,";
             }
             if (CheckBox_Gender.IsChecked == true)
             {
-                UserChoice.ChosenParameters.Add("gender");
+                parameters += "gender";
             }
             if (CheckBox_DateOfBirth.IsChecked == true)
             {
-                UserChoice.ChosenParameters.Add("dob");
+                parameters += "dob";
             }
             if (CheckBox_Email.IsChecked == true)
             {
-                UserChoice.ChosenParameters.Add("email");
+                parameters += "email";
             }
             if (CheckBox_PhoneNumber.IsChecked == true)
             {
-                UserChoice.ChosenParameters.Add("phone_number");
+                parameters += "phone_number";
+            }
+
+            if (parameters == "")
+            {
+                MessageBox.Show("Please select at least one field to be put into csv file");
+                return;
             }
 
             //some method to call controller to start writing 
-
-
-            //some method to clear the list
+            controller.GeneratePersonsAndWriteToCsv(amountToGenerate, parameters);
 
         }
     }

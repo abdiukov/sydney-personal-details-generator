@@ -7,8 +7,8 @@ namespace Controller
         private readonly Random random = new();
         public string GenerateRandomDate()
         {
-            //generate a year between 1950 and 2000
-            int year = 1950 + random.Next(0, 50);
+            //generate a year between 1950 and 2002
+            int year = 1950 + random.Next(0, 52);
 
             //generate a month between 1 and 12
             int month = random.Next(1, 12);

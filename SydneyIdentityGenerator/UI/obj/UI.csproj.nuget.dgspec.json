@@ -173,9 +173,6 @@
             "projectReferences": {
               "C:\\Users\\Ash\\Desktop\\GitHub\\SydneyAddressGenerator\\SydneyIdentityGenerator\\Controller\\Controller.csproj": {
                 "projectPath": "C:\\Users\\Ash\\Desktop\\GitHub\\SydneyAddressGenerator\\SydneyIdentityGenerator\\Controller\\Controller.csproj"
-              },
-              "C:\\Users\\Ash\\Desktop\\GitHub\\SydneyAddressGenerator\\SydneyIdentityGenerator\\Model\\Model.csproj": {
-                "projectPath": "C:\\Users\\Ash\\Desktop\\GitHub\\SydneyAddressGenerator\\SydneyIdentityGenerator\\Model\\Model.csproj"
               }
             }
           }
