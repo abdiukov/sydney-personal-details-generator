@@ -48,19 +48,19 @@ namespace UI
             }
             if (CheckBox_Address.IsChecked == true)
             {
-                parameters += "address";
+                parameters += "address,";
             }
             if (CheckBox_PhoneNumber.IsChecked == true)
             {
-                parameters += "phone_number";
+                parameters += "phone_number,";
             }
             if (CheckBox_DateOfBirth.IsChecked == true)
             {
-                parameters += "dob";
+                parameters += "dob,";
             }
             if (CheckBox_Gender.IsChecked == true)
             {
-                parameters += "gender";
+                parameters += "gender,";
             }
             if (CheckBox_Email.IsChecked == true)
             {

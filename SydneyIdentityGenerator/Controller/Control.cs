@@ -1,4 +1,7 @@
 ﻿using Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Controller
 {
@@ -14,28 +17,66 @@ namespace Controller
 
         public void GeneratePersonsAndWriteToCsv(int amountToGenerate, string parameters)
         {
-            Person[] records = GeneratePersons(amountToGenerate);
+            Person[] records = GeneratePersons(amountToGenerate, parameters);
 
-            CsvFileWriter.Write("text.csv", parameters, records);
+            CsvFileWriter.Write(DateTime.Now.Ticks + ".csv", parameters, records);
         }
 
-        private Person[] GeneratePersons(int amountToGenerate)
+        private Person[] GeneratePersons(int amountToGenerate, string parameters)
         {
+            //defining
+            List<string> parameterList = parameters.Split(',').ToList();
+            bool firstNameRequired = parameterList.Contains("first_name");
+            bool lastNameRequired = parameterList.Contains("last_name");
+            bool addressRequired = parameterList.Contains("address");
+            bool phoneNumberRequired = parameterList.Contains("phone_number");
+            bool dateOfBirthRequired = parameterList.Contains("dob");
+            bool genderRequired = parameterList.Contains("gender");
+            bool emailRequired = parameterList.Contains("email");
 
-            //defining output
+
             Person[] output = new Person[amountToGenerate];
 
             for (int i = 0; i < amountToGenerate; i++)
             {
+                Person toAdd = new();
+
+                //gender, firstname and lastname are generated no matter what,
+                //because they are needed for email
+
                 string gender = genderGenerator.GenerateGender();
                 string firstName = nameGenerator.GenerateFirstName(gender);
                 string lastName = nameGenerator.GenerateLastName();
-                string email = emailGenerator.GenerateEmail(firstName, lastName);
-                string address = addressGenerator.GenerateRandomSydneyAddress();
-                string phoneNumber = phoneNumberGenerator.GeneratePhoneNumber();
-                string dateOfBirth = dateOfBirthGenerator.GenerateRandomDate();
 
-                Person toAdd = new(firstName, lastName, address, phoneNumber, gender, email, dateOfBirth);
+                if (firstNameRequired)
+                {
+                    toAdd.FirstName = firstName + ",";
+                }
+                if (lastNameRequired)
+                {
+                    toAdd.LastName = lastName + ",";
+                }
+                if (addressRequired)
+                {
+                    toAdd.Address = "\"" + addressGenerator.GenerateRandomSydneyAddress() + "\"" + ",";
+                }
+                if (phoneNumberRequired)
+                {
+                    toAdd.PhoneNumber = phoneNumberGenerator.GeneratePhoneNumber() + ",";
+                }
+                if (dateOfBirthRequired)
+                {
+                    toAdd.DateOfBirth = dateOfBirthGenerator.GenerateRandomDate() + ",";
+                }
+                if (genderRequired)
+                {
+                    toAdd.Gender = gender + ",";
+                }
+                if (emailRequired)
+                {
+                    toAdd.Email = emailGenerator.GenerateEmail(firstName, lastName) + ",";
+                }
+
                 output[i] = toAdd;
             }
             return output;

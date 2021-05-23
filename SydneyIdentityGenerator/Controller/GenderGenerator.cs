@@ -9,7 +9,8 @@ namespace Controller
         private readonly Random random = new();
         public string GenerateGender()
         {
-            switch (random.Next(1, 2))
+            int numberBetweenOneAndTwo = random.Next(1, 3);
+            switch (numberBetweenOneAndTwo)
             {
                 case 1:
                     return "male";

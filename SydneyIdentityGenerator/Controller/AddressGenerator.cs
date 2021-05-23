@@ -8,7 +8,7 @@ namespace Controller
     {
         private readonly Random random = new();
         private const string SYDNEY_ADDRESSES_FILE_NAME = "sydney_addresses.txt";
-        private const int NUMBER_OF_LINES_SYDNEY_ADDRESSES_FILE = 1366279 - 1;
+        private const int NUMBER_OF_LINES_SYDNEY_ADDRESSES_FILE = 1366279;
         public string GenerateRandomSydneyAddress()
         {
             int randomlyGeneratedLine = random.Next(0, NUMBER_OF_LINES_SYDNEY_ADDRESSES_FILE);

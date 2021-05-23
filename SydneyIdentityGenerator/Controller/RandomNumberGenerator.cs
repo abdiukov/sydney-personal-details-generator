@@ -13,7 +13,7 @@ namespace Controller
         /// <returns>Number from 1 to maximumValue (maximumValue is provided by user) </returns>
         public int GenerateRandomNumber(int maximumValue)
         {
-            return random.Next(1, maximumValue);
+            return random.Next(1, maximumValue + 1);
         }
     }
 }
