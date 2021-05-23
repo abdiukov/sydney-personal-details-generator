@@ -14,12 +14,19 @@ namespace Controller
         private readonly DateOfBirthGenerator dateOfBirthGenerator = new();
         private readonly PhoneNumberGenerator phoneNumberGenerator = new();
 
-
-        public void GeneratePersonsAndWriteToCsv(int amountToGenerate, string parameters)
+        public string GeneratePersonsAndWriteToCsv(int amountToGenerate, string parameters, string fileName)
         {
-            Person[] records = GeneratePersons(amountToGenerate, parameters);
+            try
+            {
+                Person[] records = GeneratePersons(amountToGenerate, parameters);
 
-            CsvFileWriter.Write(DateTime.Now.Ticks + ".csv", parameters, records);
+                CsvFileWriter.Write(fileName, parameters, records);
+            }
+            catch (Exception ex)
+            {
+                return "An error has occured : " + ex.Message;
+            }
+            return "success";
         }
 
         private Person[] GeneratePersons(int amountToGenerate, string parameters)
@@ -33,7 +40,6 @@ namespace Controller
             bool dateOfBirthRequired = parameterList.Contains("dob");
             bool genderRequired = parameterList.Contains("gender");
             bool emailRequired = parameterList.Contains("email");
-
 
             Person[] output = new Person[amountToGenerate];
 
@@ -79,6 +85,7 @@ namespace Controller
 
                 output[i] = toAdd;
             }
+
             return output;
         }
 

@@ -7,7 +7,7 @@ namespace Controller
 {
     public class CsvFileWriter
     {
-        public static string Write(string fileName, string parameters, Person[] records)
+        public static void Write(string fileName, string parameters, Person[] records)
         {
             //defining file writers
             StreamWriter stream = new(fileName);
@@ -20,12 +20,9 @@ namespace Controller
                 writer.WriteField("\n" + records[i].ToString(), false);
             }
 
-
             //disposing
             writer.Flush();
             stream.Close();
-
-            return "";
         }
 
     }
