@@ -15,6 +15,6 @@ You can then import that .csv file into your database, for more information read
 # Credits
 
 - OpenAddresses - > https://github.com/openaddresses/openaddresses by OpenAddresses. BSD-3-Clause License.
-- CsvHelper - > https://github.com/JoshClose/CsvHelper by Josh Close. Apache 2.0 and MS-PL License.
-- RandomNameGeneratorLibrary - > https://github.com/m4bwav/DotNetRandomNameGenerator by Mark Rogers. MIT Licence.
-- Application icon - > https://www.microsoft.com/en-us/download/details.aspx?id=35825. Allowed under Microsoft EULA.
+- CsvHelper - > https://github.com/JoshClose/CsvHelper by Josh Close. Dual licensing under MS-PL and Apache 2.0.
+- RandomNameGeneratorLibrary - > https://github.com/m4bwav/DotNetRandomNameGenerator by Mark Rogers. MIT License.
+- Application icon - > https://www.microsoft.com/en-us/download/details.aspx?id=35825. Allowed under Microsoft Visual Studio 2019 Image Library EULA.
