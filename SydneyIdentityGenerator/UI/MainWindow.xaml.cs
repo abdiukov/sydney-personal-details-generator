@@ -113,6 +113,5 @@ namespace UI
         {
             e.Handled = regex.IsMatch(e.Text);
         }
-
     }
 }
