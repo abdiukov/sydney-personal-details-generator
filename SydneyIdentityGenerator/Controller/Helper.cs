@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Text;
 
 namespace Controller;
 public class Helper
@@ -49,14 +50,15 @@ public class CsvFileWriter
 {
     public static async void Write(string fileName, string parameters, IPerson[] records)
     {
-        // WRITE THE FIRST LINE
-        StreamWriter stream = new(fileName);
-        CsvWriter writer = new(stream, CultureInfo.InvariantCulture);
-        writer.WriteField(parameters, false);
+        using StreamWriter writer = new(fileName);
 
-        //writing the rest of file
-        writer.WriteRecords(records);
-        writer.Flush();
-        stream.Close();
+        // write first line
+        await writer.WriteAsync(parameters);
+
+        // write the contents of records
+        foreach (IPerson item in records)
+        {
+            await writer.WriteLineAsync(item.ToStrings());
+        }
     }
 }

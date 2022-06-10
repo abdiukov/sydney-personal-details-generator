@@ -1,8 +1,3 @@
-SydneyIdentityGenerator/Model/bin/Debug
-SydneyIdentityGenerator/Model/obj/Debug/
-
-SydneyIdentityGenerator/Controller/bin/Debug/
-SydneyIdentityGenerator/Controller/obj/Debug/
-
-SydneyIdentityGenerator/UI/bin/Debug/
-SydneyIdentityGenerator/UI/obj/Debug/
+**/obj
+**/bin
+.vs/

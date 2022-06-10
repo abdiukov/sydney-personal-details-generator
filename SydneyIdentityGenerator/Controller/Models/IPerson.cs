@@ -8,5 +8,5 @@ public interface IPerson
     virtual string Email => $"{FirstName}.{LastName}@gmail.com";
     virtual string DateOfBirth => Helper.DateOfBirthGenerator.GenerateRandomDate();
     string Gender { get; }
-    virtual string ToString() => FirstName + LastName + Address + PhoneNumber + DateOfBirth + Gender + Email;
+    virtual string ToStrings() => FirstName + LastName + Address + PhoneNumber + DateOfBirth + Gender + Email;
 }
