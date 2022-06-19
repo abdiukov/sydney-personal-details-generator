@@ -5,16 +5,15 @@ namespace Controller
 {
     public class Control
     {
-
         // What will this class contain :
         // 1. State pattern -> different depending on the state 
         // 2. What happens if user selects different options?
 
-        public string GeneratePersonsAndWriteToCsv(int amountToGenerate, string parameters, string fileName)
+        public string GeneratePersonsAndWriteToCsv(int amountToGenerate, MultiDelegate parameters, string fileName)
         {
             try
             {
-                IPerson[] records = GeneratePersons(amountToGenerate, parameters);
+                IPerson[] records = GeneratePersons(amountToGenerate);
 
                 CsvFileWriter.Write(fileName, parameters, records);
             }
@@ -26,7 +25,7 @@ namespace Controller
         }
 
 
-        private IPerson[] GeneratePersons(int amountToGenerate, string parameters)
+        private IPerson[] GeneratePersons(int amountToGenerate)
         {
             //defining
             IPerson[] output = new IPerson[amountToGenerate];

@@ -19,18 +19,13 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
-
             <RowDefinition Height="30"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
-
-
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
-
             <RowDefinition Height="30"></RowDefinition>
-
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -49,14 +44,10 @@
 
         <CheckBox x:Name="CheckBox_FirstName" Margin="10" Content="First name" Grid.Row="5" Grid.Column="0"></CheckBox>
         <CheckBox x:Name="CheckBox_LastName" Margin="10" Content="Last name" Grid.Row="5" Grid.Column="1"></CheckBox>
-
         <CheckBox x:Name="CheckBox_Address" Margin="10" Content="Address" Grid.Row="6" Grid.Column="0"></CheckBox>
         <CheckBox x:Name="CheckBox_PhoneNumber" Margin="10" Content="Phone number" Grid.Row="6" Grid.Column="1"></CheckBox>
-
         <CheckBox x:Name="CheckBox_DateOfBirth" Margin="10" Content="Date of birth" Grid.Row="7" Grid.Column="0"></CheckBox>
         <CheckBox x:Name="CheckBox_Gender" Margin="10" Content="Gender" Grid.Row="7" Grid.Column="1"></CheckBox>
-
-
         <CheckBox x:Name="CheckBox_Email" Margin="10" Content="Email" Grid.Row="8" Grid.Column="0"></CheckBox>
 
         <Button x:Name="Btn_GenerateCSV" Content="Generate csv file" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2"

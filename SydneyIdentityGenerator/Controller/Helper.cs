@@ -1,5 +1,4 @@
 ﻿using Controller.Models;
-using CsvHelper;
 using RandomNameGeneratorLibrary;
 using System;
 using System.Collections.Generic;
@@ -48,17 +47,19 @@ public class AddressGenerator
 
 public class CsvFileWriter
 {
-    public static async void Write(string fileName, string parameters, IPerson[] records)
+    public static async void Write(string fileName, MultiDelegate parameters, IPerson[] records)
     {
         using StreamWriter writer = new(fileName);
 
         // write first line
-        await writer.WriteAsync(parameters);
+        // await writer.WriteAsync(parameters);
 
         // write the contents of records
         foreach (IPerson item in records)
         {
-            await writer.WriteLineAsync(item.ToStrings());
+            var toWrite = parameters.GetInvocationList().Select(x => x.DynamicInvoke(item));
+
+            await writer.WriteLineAsync(toWrite.ToString());
         }
     }
 }
