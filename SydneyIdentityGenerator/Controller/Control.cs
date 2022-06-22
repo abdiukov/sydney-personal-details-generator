@@ -1,32 +1,23 @@
 ﻿using Controller.Models;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using static Controller.Builder<Controller.Models.IPerson>;
+//using static Controller.Builder<Controller.Models.IPerson>;
 
 namespace Controller;
 public class Control
 {
-    public Task GeneratePersonsAndWriteToCsv(int amountToGenerate, BuildInstructions parameters, string fileName)
+    public Task GeneratePersonsAndWriteToCsv(int amountToGenerate, /*BuildInstructions parameters,*/ string fileName)
     {
-        IPerson[] records = GeneratePersons(amountToGenerate, parameters);
+        IEnumerable<IPerson> records = GeneratePersons(amountToGenerate/*, parameters*/);
         CsvFileWriter.Write(fileName, records);
         return Task.CompletedTask;
     }
 
-    private IPerson[] GeneratePersons(int amountToGenerate, BuildInstructions buildDelegate)
+    private IEnumerable<IPerson> GeneratePersons(int amountToGenerate/*, BuildInstructions buildDelegate*/)
     {
-        IPerson[] output = new IPerson[amountToGenerate];
-        for (var i = 0; i < amountToGenerate; i++)
-        {
-            //TODO: for now the decision to generate male or female is not truly random. Does it need to be?
-            if (amountToGenerate % 2 == 0)
-                output[i] = new Male();
-            else
-                output[i] = new Female();
-
-            // Build
-            buildDelegate(output[i]);
-        }
-
-        return output;
+        IEnumerable<IPerson> maleList = Enumerable.Range(1, amountToGenerate / 2).Select(i => /*buildDelegate*/(new Male()));
+        IEnumerable<IPerson> femaleList = Enumerable.Range(1, amountToGenerate / 2).Select(i => /*buildDelegate*/(new Female()));
+        return maleList.Concat(femaleList);
     }
 }

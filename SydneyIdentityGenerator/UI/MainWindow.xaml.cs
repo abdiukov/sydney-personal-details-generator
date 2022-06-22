@@ -18,13 +18,12 @@ public partial class MainWindow : Window
 
     public MainWindow() => InitializeComponent();
     
-
-    void Btn_GenerateCSV_ClickAsync(object sender, RoutedEventArgs e)
+    private void Btn_GenerateCSV_ClickAsync(object sender, RoutedEventArgs e)
     {
         //defining
         var fileName = Textbox_OutputFileName?.Text;
         var amountOfRecordsToGenerate = int.Parse(Textbox_NumberOfRecords.Text);
-        Builder<IPerson> builder = new();
+        //Builder<IPerson> builder = new();
 
         //validating user input
         if (string.IsNullOrEmpty(fileName))
@@ -38,29 +37,29 @@ public partial class MainWindow : Window
         if (amountOfRecordsToGenerate is < 1)
             throw new InvalidOperationException("The number in \"Number of records to generate\" field has to be at least 1");
 
-        if (CheckBox_FirstName.IsChecked == true)
-            builder.BuildFirstName();
+        //if (CheckBox_FirstName.IsChecked == true)
+        //    builder.BuildFirstName();
 
-        if (CheckBox_LastName.IsChecked == true)
-            builder.BuildLastName();
+        //if (CheckBox_LastName.IsChecked == true)
+        //    builder.BuildLastName();
 
-        if (CheckBox_Address.IsChecked == true)
-            builder.BuildAddress();
+        //if (CheckBox_Address.IsChecked == true)
+        //    builder.BuildAddress();
 
-        if (CheckBox_PhoneNumber.IsChecked == true)
-            builder.BuildPhoneNumber();
+        //if (CheckBox_PhoneNumber.IsChecked == true)
+        //    builder.BuildPhoneNumber();
 
-        if (CheckBox_DateOfBirth.IsChecked == true)
-            builder.BuildDateOfBirth();
+        //if (CheckBox_DateOfBirth.IsChecked == true)
+        //    builder.BuildDateOfBirth();
 
-        if (CheckBox_Gender.IsChecked == true)
-            builder.BuildGender();
+        //if (CheckBox_Gender.IsChecked == true)
+        //    builder.BuildGender();
 
-        if (CheckBox_Email.IsChecked == true)
-            builder.BuildEmail();
+        //if (CheckBox_Email.IsChecked == true)
+        //    builder.BuildEmail();
 
         //calling the method to generate and write onto csv file
-        var result = controller.GeneratePersonsAndWriteToCsv(amountOfRecordsToGenerate, builder.buildInstructions, fileName);
+        var result = controller.GeneratePersonsAndWriteToCsv(amountOfRecordsToGenerate,/* builder.buildInstructions,*/ fileName);
 
         if (result.IsCompletedSuccessfully)
         {

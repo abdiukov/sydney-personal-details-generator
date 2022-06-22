@@ -2,6 +2,7 @@
 
 public class Male : IPerson
 {
-    public string FirstName => Helper.NameGenerator.GenerateRandomMaleFirstName();
-    public string Gender => "male";
+    // custom properties
+    public override string FirstName => Helper.NameGenerator.GenerateRandomMaleFirstName();
+    public override string Gender => "male";
 }

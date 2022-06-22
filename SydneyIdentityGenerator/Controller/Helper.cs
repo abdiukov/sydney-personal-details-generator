@@ -1,6 +1,9 @@
-﻿using RandomNameGeneratorLibrary;
+﻿using CsvHelper;
+using RandomNameGeneratorLibrary;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 
@@ -26,23 +29,13 @@ public class AddressGenerator
 
 public class CsvFileWriter
 {
-    public static void Write(string fileName, object records)
+    public static async void Write(string fileName, IEnumerable records)
     {
-        using StreamWriter writer = new(fileName);
+        using (var writer = new StreamWriter(fileName))
+        using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+        {
+            await csv.WriteRecordsAsync(records);
+        }
 
-        writer.Write(records);
-
-        //// TODO: FIND A CSV WRITER THAT SERIALIZES THE OBJECTS NICELY
-
-        //// write first line
-        //// await writer.WriteAsync(parameters);
-
-        //// write the contents of records
-        //foreach (IPerson item in records)
-        //{
-        //    //var toWrite = parameters.GetInvocationList().Select(x => x.DynamicInvoke(item));
-
-        //  //  await writer.WriteLineAsync(toWrite.ToString());
-        //}
     }
 }

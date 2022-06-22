@@ -51,6 +51,6 @@
         <CheckBox x:Name="CheckBox_Email" Margin="10" Content="Email" Grid.Row="8" Grid.Column="0"></CheckBox>
 
         <Button x:Name="Btn_GenerateCSV" Content="Generate csv file" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2"
-                Click="Btn_GenerateCSV_Click"></Button>
+                Click="Btn_GenerateCSV_ClickAsync"></Button>
     </Grid>
 </Window>
