@@ -12,19 +12,19 @@ namespace UI;
 public partial class MainWindow : Window
 {
     private readonly Regex _numberRegex = new("[^0-9]+");
-    private readonly Control _controller = new();
+    private readonly Control<Person> _controller = new();
 
     public MainWindow()
     {
         InitializeComponent();
-    } 
+    }
 
     private void Btn_GenerateCSV_ClickAsync(object sender, RoutedEventArgs e)
     {
         //defining
-        var fileName = Textbox_OutputFileName?.Text;
-        var amountOfRecordsToGenerate = int.Parse(Textbox_NumberOfRecords.Text);
-        Builder<Person> builder = new();
+        var fileName = TextboxOutputFileName?.Text;
+        var amountOfRecordsToGenerate = int.Parse(TextboxNumberOfRecords.Text);
+        Control<Person>.BuildInstructions builder = null;
 
         //validating user input
         if (string.IsNullOrEmpty(fileName))
@@ -35,32 +35,32 @@ public partial class MainWindow : Window
         if (File.Exists(fileName))
             fileName = GenerateCsvFileName();
 
-        if (amountOfRecordsToGenerate is < 1)
+        if (amountOfRecordsToGenerate < 1)
             throw new InvalidOperationException("The number in \"Number of records to generate\" field has to be at least 1");
 
-        if (CheckBox_FirstName.IsChecked == true)
-            builder.BuildFirstName();
+        if (CheckBoxFirstName.IsChecked == true)
+            builder += t => t.BuildFirstName();
 
-        if (CheckBox_LastName.IsChecked == true)
-            builder.BuildLastName();
+        if (CheckBoxLastName.IsChecked == true)
+            builder += t => t.BuildLastName();
 
-        if (CheckBox_Address.IsChecked == true)
-            builder.BuildAddress();
+        if (CheckBoxAddress.IsChecked == true)
+            builder += t => t.BuildAddress();
 
-        if (CheckBox_PhoneNumber.IsChecked == true)
-            builder.BuildPhoneNumber();
+        if (CheckBoxPhoneNumber.IsChecked == true)
+            builder += t => t.BuildPhoneNumber();
 
-        if (CheckBox_DateOfBirth.IsChecked == true)
-            builder.BuildDateOfBirth();
+        if (CheckBoxDateOfBirth.IsChecked == true)
+            builder += t => t.BuildDateOfBirth();
 
-        if (CheckBox_Gender.IsChecked == true)
-            builder.BuildGender();
+        if (CheckBoxGender.IsChecked == true)
+            builder += t => t.BuildGender();
 
-        if (CheckBox_Email.IsChecked == true)
-            builder.BuildEmail();
+        if (CheckBoxEmail.IsChecked == true)
+            builder += t => t.BuildEmail();
 
         //calling the method to generate and write onto csv file
-        var result = _controller.GeneratePersonsAndWriteToCsv(amountOfRecordsToGenerate, builder.buildInstructions, fileName);
+        var result = _controller.GeneratePersonsAndWriteToCsv(amountOfRecordsToGenerate, builder, fileName);
 
         if (result.IsCompletedSuccessfully)
         {

@@ -7,7 +7,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 
-namespace Controller.Services;
+namespace Controller;
 public class Helper
 {
     public static readonly Random Random = new();
@@ -17,9 +17,11 @@ public class Helper
 
 public class AddressGenerator
 {
+    // A NoSQL database could be used here, instead of storing addresses in a text file.
     private const string SydneyAddressesFileName = "sydney_addresses.txt";
     private const int NumberOfLinesSydneyAddressesFile = 1366279;
     private static readonly IEnumerable<string> ReadFile = File.ReadLines(SydneyAddressesFileName);
+
     public string GenerateRandomSydneyAddress()
     {
         var randomlyGeneratedLine = Helper.Random.Next(0, NumberOfLinesSydneyAddressesFile);

@@ -30,27 +30,27 @@
         </Grid.RowDefinitions>
 
         <Label Content="Number of records to generate: " Grid.Row="0" Grid.Column="0"></Label>
-        <TextBox x:Name="Textbox_NumberOfRecords" Text="1" PreviewTextInput="NumberValidationTextBox" Grid.Row="0" Grid.Column="1"></TextBox>
+        <TextBox x:Name="TextBoxNumberOfRecords" Text="1" PreviewTextInput="NumberValidationTextBox" Grid.Row="0" Grid.Column="1"></TextBox>
 
         <Label Content="Region: " Grid.Row="1" Grid.Column="0"></Label>
-        <ComboBox x:Name="ComboBox_AvailableRegions" Grid.Row="1" Grid.Column="1" SelectedIndex="0">
+        <ComboBox x:Name="ComboBoxAvailableRegions" Grid.Row="1" Grid.Column="1" SelectedIndex="0">
             <ComboBoxItem>Sydney, NSW</ComboBoxItem>
         </ComboBox>
 
         <Label Content="Name of output file: " Grid.Row="2" Grid.Column="0"></Label>
-        <TextBox x:Name="Textbox_OutputFileName" Grid.Row="2" Grid.Column="1"></TextBox>
+        <TextBox x:Name="TextBoxOutputFileName" Grid.Row="2" Grid.Column="1"></TextBox>
 
         <Label Content="Choose fields to be included in csv file: " Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"></Label>
 
-        <CheckBox x:Name="CheckBox_FirstName" Margin="10" Content="First name" Grid.Row="5" Grid.Column="0"></CheckBox>
-        <CheckBox x:Name="CheckBox_LastName" Margin="10" Content="Last name" Grid.Row="5" Grid.Column="1"></CheckBox>
-        <CheckBox x:Name="CheckBox_Address" Margin="10" Content="Address" Grid.Row="6" Grid.Column="0"></CheckBox>
-        <CheckBox x:Name="CheckBox_PhoneNumber" Margin="10" Content="Phone number" Grid.Row="6" Grid.Column="1"></CheckBox>
-        <CheckBox x:Name="CheckBox_DateOfBirth" Margin="10" Content="Date of birth" Grid.Row="7" Grid.Column="0"></CheckBox>
-        <CheckBox x:Name="CheckBox_Gender" Margin="10" Content="Gender" Grid.Row="7" Grid.Column="1"></CheckBox>
-        <CheckBox x:Name="CheckBox_Email" Margin="10" Content="Email" Grid.Row="8" Grid.Column="0"></CheckBox>
+        <CheckBox x:Name="CheckBoxFirstName" Margin="10" Content="First name" Grid.Row="5" Grid.Column="0"></CheckBox>
+        <CheckBox x:Name="CheckBoxLastName" Margin="10" Content="Last name" Grid.Row="5" Grid.Column="1"></CheckBox>
+        <CheckBox x:Name="CheckBoxAddress" Margin="10" Content="Address" Grid.Row="6" Grid.Column="0"></CheckBox>
+        <CheckBox x:Name="CheckBoxPhoneNumber" Margin="10" Content="Phone number" Grid.Row="6" Grid.Column="1"></CheckBox>
+        <CheckBox x:Name="CheckBoxDateOfBirth" Margin="10" Content="Date of birth" Grid.Row="7" Grid.Column="0"></CheckBox>
+        <CheckBox x:Name="CheckBoxGender" Margin="10" Content="Gender" Grid.Row="7" Grid.Column="1"></CheckBox>
+        <CheckBox x:Name="CheckBoxEmail" Margin="10" Content="Email" Grid.Row="8" Grid.Column="0"></CheckBox>
 
-        <Button x:Name="Btn_GenerateCSV" Content="Generate csv file" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2"
+        <Button x:Name="BtnGenerateCsv" Content="Generate csv file" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2"
                 Click="Btn_GenerateCSV_ClickAsync"></Button>
     </Grid>
 </Window>

@@ -1,6 +1,4 @@
-﻿using Controller.Services;
-
-namespace Controller.Models;
+﻿namespace Controller.Models;
 
 public class Female : Person
 {
