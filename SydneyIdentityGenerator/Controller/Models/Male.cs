@@ -1,8 +1,9 @@
-﻿namespace Controller.Models;
+﻿using Controller.Services;
 
-public class Male : IPerson
+namespace Controller.Models;
+
+public class Male : Person
 {
-    // custom properties
-    public override string FirstName => Helper.NameGenerator.GenerateRandomMaleFirstName();
-    public override string Gender => "male";
+    public override void BuildFirstName() => FirstName = Helper.NameGenerator.GenerateRandomMaleFirstName();
+    public override void BuildGender() => Gender = "male";
 }

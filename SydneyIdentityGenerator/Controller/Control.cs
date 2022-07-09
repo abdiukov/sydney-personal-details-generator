@@ -1,23 +1,36 @@
 ﻿using Controller.Models;
+using Controller.Services;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-//using static Controller.Builder<Controller.Models.IPerson>;
 
 namespace Controller;
 public class Control
 {
-    public Task GeneratePersonsAndWriteToCsv(int amountToGenerate, /*BuildInstructions parameters,*/ string fileName)
+    public Task GeneratePersonsAndWriteToCsv(int amountToGenerate, Builder<Person>.BuildInstructions parameters, string fileName)
     {
-        IEnumerable<IPerson> records = GeneratePersons(amountToGenerate/*, parameters*/);
+        IEnumerable records = GeneratePersons(amountToGenerate, parameters);
         CsvFileWriter.Write(fileName, records);
         return Task.CompletedTask;
     }
 
-    private IEnumerable<IPerson> GeneratePersons(int amountToGenerate/*, BuildInstructions buildDelegate*/)
+    private IEnumerable<Person> GeneratePersons(int amountToGenerate, Builder<Person>.BuildInstructions buildDelegate)
     {
-        IEnumerable<IPerson> maleList = Enumerable.Range(1, amountToGenerate / 2).Select(i => /*buildDelegate*/(new Male()));
-        IEnumerable<IPerson> femaleList = Enumerable.Range(1, amountToGenerate / 2).Select(i => /*buildDelegate*/(new Female()));
+        IEnumerable<Person> maleList = Enumerable.Range(1, amountToGenerate / 2)
+            .Select(i =>
+            {
+                var male = new Male();
+                buildDelegate(male);
+                return male;
+            });
+        IEnumerable<Person> femaleList = Enumerable.Range(1, amountToGenerate / 2)
+            .Select(i =>
+            {
+                var female = new Female();
+                buildDelegate(female);
+                return female;
+            });
         return maleList.Concat(femaleList);
     }
 }
