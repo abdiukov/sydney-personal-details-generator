@@ -1,6 +1,5 @@
 ﻿using Controller.Models;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,12 +10,12 @@ public class Control<T> where T : Person
 
     public Task GeneratePersonsAndWriteToCsv(int amountToGenerate, BuildInstructions buildDelegate, string fileName)
     {
-        IEnumerable records = GeneratePersons(amountToGenerate, buildDelegate);
+        var records = GeneratePersons(amountToGenerate, buildDelegate);
         CsvFileWriter.Write(fileName, records);
         return Task.CompletedTask;
     }
 
-    private IEnumerable<Person> GeneratePersons(int amountToGenerate, BuildInstructions buildDelegate)
+    private IEnumerable GeneratePersons(int amountToGenerate, BuildInstructions buildDelegate)
     {
         return Enumerable.Range(1, amountToGenerate).Select(i =>
             {

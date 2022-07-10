@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UI", "UI\UI.csproj", "{4301
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Controller", "Controller\Controller.csproj", "{32D6766B-C700-4ACE-9478-ED9C6FA17124}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControllerTests", "ControllerTests\ControllerTests.csproj", "{5C32F483-94F1-425F-A105-DBFCC464F00B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UITests", "UITests\UITests.csproj", "{181562D0-EFA5-4D3F-ABBA-2CD1F9F148F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{32D6766B-C700-4ACE-9478-ED9C6FA17124}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{32D6766B-C700-4ACE-9478-ED9C6FA17124}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{32D6766B-C700-4ACE-9478-ED9C6FA17124}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C32F483-94F1-425F-A105-DBFCC464F00B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C32F483-94F1-425F-A105-DBFCC464F00B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C32F483-94F1-425F-A105-DBFCC464F00B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C32F483-94F1-425F-A105-DBFCC464F00B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{181562D0-EFA5-4D3F-ABBA-2CD1F9F148F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{181562D0-EFA5-4D3F-ABBA-2CD1F9F148F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{181562D0-EFA5-4D3F-ABBA-2CD1F9F148F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{181562D0-EFA5-4D3F-ABBA-2CD1F9F148F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

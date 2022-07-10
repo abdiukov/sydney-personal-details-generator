@@ -16,7 +16,7 @@ public abstract class Person
     public virtual void BuildAddress() => Address = Helper.AddressGenerator.GenerateRandomSydneyAddress();
     public virtual void BuildPhoneNumber() => PhoneNumber = $"04{Helper.Random.Next(100000, 1000000)}";
     public virtual void BuildEmail() => Email = $"{FirstName}.{LastName}@gmail.com";
-    public virtual void BuildDateOfBirth() => DateOfBirth = $"{1950 + Helper.Random.Next(0, 53)}/{Helper.Random.Next(1, 13)}/{Helper.Random.Next(1, 29)}";
+    public virtual void BuildDateOfBirth() => DateOfBirth = $"{1950 + Helper.Random.Next(0, 53)}-{Helper.Random.Next(1, 13)}-{Helper.Random.Next(1, 29)}";
     public virtual void BuildGender() => Gender = "non-binary";
     #endregion
 }

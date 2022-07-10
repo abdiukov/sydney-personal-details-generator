@@ -9,8 +9,9 @@ using Controller.Models;
 
 namespace UI;
 
-public partial class MainWindow : Window
+public partial class MainWindow
 {
+    // TODO: numberRegex should force a number to be more than 0
     private readonly Regex _numberRegex = new("[^0-9]+");
     private readonly Control<Person> _controller = new();
 
@@ -22,8 +23,8 @@ public partial class MainWindow : Window
     private void Btn_GenerateCSV_ClickAsync(object sender, RoutedEventArgs e)
     {
         //defining
-        var fileName = TextboxOutputFileName?.Text;
-        var amountOfRecordsToGenerate = int.Parse(TextboxNumberOfRecords.Text);
+        var fileName = TextBoxOutputFileName?.Text;
+        var amountOfRecordsToGenerate = int.Parse(TextBoxNumberOfRecords.Text);
         Control<Person>.BuildInstructions builder = null;
 
         //validating user input
@@ -77,6 +78,7 @@ public partial class MainWindow : Window
             }
         }
     }
+
     string GenerateCsvFileName() => $"{DateTime.Now.Ticks}";
     void NumberValidationTextBox(object sender, TextCompositionEventArgs e) => e.Handled = _numberRegex.IsMatch(e.Text);
 }

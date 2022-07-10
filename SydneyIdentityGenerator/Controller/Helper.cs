@@ -33,8 +33,8 @@ public class CsvFileWriter
 {
     public static async void Write(string fileName, IEnumerable records)
     {
-        await using var writer = new StreamWriter(fileName);
-        await using var csv = new CsvWriter(writer, CultureInfo.InvariantCulture);
-        await csv.WriteRecordsAsync(records);
+        await using var streamWriter = new StreamWriter(fileName);
+        await using var csvWriter = new CsvWriter(streamWriter, CultureInfo.InvariantCulture);
+        await csvWriter.WriteRecordsAsync(records);
     }
 }
