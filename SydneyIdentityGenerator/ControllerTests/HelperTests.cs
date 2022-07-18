@@ -1,14 +1,65 @@
-﻿namespace ControllerTests;
+﻿using Controller;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace ControllerTests;
 class HelperTests
 {
-    // Tests to add:
     // AddressGenerator:
-    // 1. GenerateRandomSydneyAddress => Should call Helper.Random.Next
-    // 1.5. GenerateRandomSydneyAddress => Should call ReadFile.skip(generatedLine).First()
+    [TestMethod]
+    public void GenerateRandomSydneyAddressShouldCallHelperRandomNext()
+    {
+        AddressGenerator generator = new();
+
+    }
+
+    [TestMethod]
+    public void GenerateRandomSydneyAddressShouldCallReadFileSkipFirst()
+    {
+        // 1.5. GenerateRandomSydneyAddress => Should call ReadFile.skip(generatedLine).First()
+        AddressGenerator generator = new();
+
+
+    }
+
     // Helper:
-    // 1. Random should not be null
-    // 2. NameGenerator should not be null
-    // 3. AddressGenerator should not be null 
+    [TestMethod]
+    public void RandomShouldNotBeNull()
+    {
+        // Arrange
+
+        // Act
+
+        // Assert
+        Assert.IsNotNull(Helper.Random);
+    }
+
+    [TestMethod]
+    public void NameGeneratorShouldNotBeNull()
+    {
+        // Arrange
+
+        // Act
+
+        // Assert
+        Assert.IsNotNull(Helper.NameGenerator);
+    }
+
+    [TestMethod]
+    public void AddressGeneratorShouldNotBeNull()
+    {
+        // Arrange
+
+        // Act
+
+        // Assert
+        Assert.IsNotNull(Helper.AddressGenerator);
+    }
+
     // CsvFileWriter
-    // 1. Write => should call csvWriter.WriteRecordsAsync()
+    [TestMethod]
+    public void WriteShouldCallCsvWriterWriteRecordsAsync()
+    {
+        CsvFileWriter writer = new();
+
+    }
 }
