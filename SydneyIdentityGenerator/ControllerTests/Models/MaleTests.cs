@@ -95,12 +95,17 @@ public class MaleTests
     public void BuildEmailShouldReturnCorrectEmailFormat()
     {
         // Arrange
+        _male.BuildFirstName();
+        _male.BuildLastName();
+        var generatedFirstName = _male.FirstName;
+        var generatedLastName = _male.LastName;
 
         // Act
         _male.BuildEmail();
 
         // Assert
         Assert.IsNotNull(_male.Email);
+        Assert.AreEqual($"{generatedFirstName}.{generatedLastName}@gmail.com", _male.Email);
 
     }
 
@@ -115,4 +120,4 @@ public class MaleTests
         // Assert
         Assert.IsNotNull(_male.DateOfBirth);
     }
-}
+}    

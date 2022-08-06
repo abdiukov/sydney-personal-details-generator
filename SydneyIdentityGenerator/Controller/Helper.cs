@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Controller;
 public class Helper
@@ -33,7 +34,7 @@ public class AddressGenerator : IAddressGenerator
 
 public class CsvFileWriter
 {
-    public static async void Write(string fileName, IEnumerable records)
+    public static async Task Write(string fileName, IEnumerable records)
     {
         await using var streamWriter = new StreamWriter(fileName);
         await using var csvWriter = new CsvWriter(streamWriter, CultureInfo.InvariantCulture);

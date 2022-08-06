@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Controller;
+using Controller.Models;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ControllerTests;
 
@@ -6,13 +8,21 @@ namespace ControllerTests;
 public class ControlTests
 {
     [TestMethod]
-    public void GeneratePersonsAndWriteToCsvShouldCallAllMethods()
+    public async Task GeneratePersonsAndWriteToCsvShouldCallAllMethodsAsync()
     {
         // Arrange
+        Control<Person>.BuildInstructions instructions = null;
+        var amountToGenerate = 10;
+        var fileName = "myFile.csv";
 
         // Act
+        await Control<Person>.GeneratePersonsAndWriteToCsv(amountToGenerate, null, fileName);
 
         // Assert
+        
+        // GeneratePersons method is called
+        // CsvFileWriter.Write method is called
+
 
     }
 

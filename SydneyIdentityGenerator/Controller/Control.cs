@@ -8,14 +8,13 @@ public class Control<T> where T : Person
 {
     public delegate void BuildInstructions(T t);
 
-    public Task GeneratePersonsAndWriteToCsv(int amountToGenerate, BuildInstructions buildDelegate, string fileName)
+    public static async Task GeneratePersonsAndWriteToCsv(int amountToGenerate, BuildInstructions buildDelegate, string fileName)
     {
         var records = GeneratePersons(amountToGenerate, buildDelegate);
-        CsvFileWriter.Write(fileName, records);
-        return Task.CompletedTask;
+        await CsvFileWriter.Write(fileName, records);
     }
 
-    private IEnumerable GeneratePersons(int amountToGenerate, BuildInstructions buildDelegate)
+    private static IEnumerable GeneratePersons(int amountToGenerate, BuildInstructions buildDelegate)
     {
         return Enumerable.Range(1, amountToGenerate).Select(i =>
             {

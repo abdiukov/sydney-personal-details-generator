@@ -1,4 +1,5 @@
-﻿using Controller;
+﻿using System.Text.RegularExpressions;
+using Controller;
 using Controller.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -94,12 +95,17 @@ public class FemaleTests
     public void BuildEmailShouldReturnCorrectEmailFormat()
     {
         // Arrange
+        _female.BuildFirstName();
+        _female.BuildLastName();
+        var generatedFirstName = _female.FirstName;
+        var generatedLastName = _female.LastName;
 
         // Act
         _female.BuildEmail();
 
         // Assert
         Assert.IsNotNull(_female.Email);
+        Assert.AreEqual($"{generatedFirstName}.{generatedLastName}@gmail.com", _female.Email);
     }
 
     [TestMethod]

@@ -12,7 +12,6 @@ namespace UI;
 public partial class MainWindow
 {
     private readonly Regex _numberRegex = new("^[1-9][0-9]*$");
-    private readonly Control<Person> _controller = new();
 
     public MainWindow()
     {
@@ -60,7 +59,7 @@ public partial class MainWindow
             builder += t => t.BuildEmail();
 
         //calling the method to generate and write onto csv file
-        var result = _controller.GeneratePersonsAndWriteToCsv(amountOfRecordsToGenerate, builder, fileName);
+        var result = Control<Person>.GeneratePersonsAndWriteToCsv(amountOfRecordsToGenerate, builder, fileName);
 
         if (result.IsCompletedSuccessfully)
         {
