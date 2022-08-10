@@ -2,26 +2,10 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ControllerTests;
+
+[TestClass]
 class HelperTests
 {
-    // AddressGenerator:
-    [TestMethod]
-    public void GenerateRandomSydneyAddressShouldCallHelperRandomNext()
-    {
-        AddressGenerator generator = new();
-
-    }
-
-    [TestMethod]
-    public void GenerateRandomSydneyAddressShouldCallReadFileSkipFirst()
-    {
-        // 1.5. GenerateRandomSydneyAddress => Should call ReadFile.skip(generatedLine).First()
-        AddressGenerator generator = new();
-
-
-    }
-
-    // Helper:
     [TestMethod]
     public void RandomShouldNotBeNull()
     {
@@ -53,13 +37,5 @@ class HelperTests
 
         // Assert
         Assert.IsNotNull(Helper.AddressGenerator);
-    }
-
-    // CsvFileWriter
-    [TestMethod]
-    public void WriteShouldCallCsvWriterWriteRecordsAsync()
-    {
-        CsvFileWriter writer = new();
-
     }
 }

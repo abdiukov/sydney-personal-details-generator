@@ -1,4 +1,5 @@
-﻿using Controller;
+﻿using System.Collections;
+using Controller;
 using Controller.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -8,71 +9,60 @@ namespace ControllerTests;
 public class ControlTests
 {
     [TestMethod]
-    public async Task GeneratePersonsAndWriteToCsvShouldCallAllMethodsAsync()
+    public void WhenGeneratePersonsAmountIs0ShouldReturnNull()
     {
         // Arrange
-        Control<Person>.BuildInstructions instructions = null;
-        var amountToGenerate = 10;
-        var fileName = "myFile.csv";
 
         // Act
-        await Control<Person>.GeneratePersonsAndWriteToCsv(amountToGenerate, null, fileName);
+        var persons = Control<Person>.GeneratePersons(0, null);
 
         // Assert
-        
-        // GeneratePersons method is called
-        // CsvFileWriter.Write method is called
-
-
+        var personsCount = ((IEnumerable<Person>)persons).Count();
+        Assert.AreEqual(expected: 0, actual: personsCount);
     }
 
     [TestMethod]
-    public void GeneratePersonsAndWriteToCsvIfErrorOccurredShouldReturnTaskFailure()
+    public void GeneratePersonsShouldGenerateExpectedAmountOfPersonsIfDelegateIsNull()
     {
         // Arrange
 
         // Act
+        var persons = Control<Person>.GeneratePersons(10, null);
 
         // Assert
-    }
-
-    [TestMethod]
-    public void GeneratePersonsShouldGenerateExpectedAmountOfPersons()
-    {
-        // Arrange
-
-        // Act
-
-        // Assert
-    }
-
-    [TestMethod]
-    public void GeneratePersonsShouldWorkIfDelegateIsNull()
-    {
-        // Arrange
-
-        // Act
-
-        // Assert
+        var personsCount = ((IEnumerable<Person>)persons)?.Count();
+        Assert.AreEqual(expected: 10, actual: personsCount);
     }
 
     [TestMethod]
     public void GeneratePersonsShouldWorkIfDelegateContainsEverything()
     {
         // Arrange
+        Control<Person>.BuildInstructions buildInstructions;
+
+        buildInstructions = t => t.BuildFirstName();
+        buildInstructions += t => t.BuildLastName();
+        buildInstructions += t => t.BuildAddress();
+        buildInstructions += t => t.BuildPhoneNumber();
+        buildInstructions += t => t.BuildDateOfBirth();
+        buildInstructions += t => t.BuildGender();
+        buildInstructions += t => t.BuildEmail();
 
         // Act
 
-        // Assert
-    }
-
-    [TestMethod]
-    public void GeneratePersonsShouldContainRoughlyTheSameAmountOfMalesAndFemales()
-    {
-        // Arrange
-
-        // Act
+        var persons = Control<Person>.GeneratePersons(10, buildInstructions);
 
         // Assert
+
+        foreach (Person person in persons)
+        {
+           Assert.IsNotNull(person.Address);
+           Assert.IsNotNull(person.DateOfBirth);
+           Assert.IsNotNull(person.Email);
+           Assert.IsNotNull(person.FirstName);
+           Assert.IsNotNull(person.LastName);
+           Assert.IsNotNull(person.PhoneNumber);
+        }
+
     }
 }

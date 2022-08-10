@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using Controller.Models;
 
@@ -24,7 +25,7 @@ public partial class MainWindow
         var fileName = TextBoxOutputFileName?.Text;
         var amountOfRecordsToGenerate = int.Parse(TextBoxNumberOfRecords.Text);
         Control<Person>.BuildInstructions builder = null;
-
+        var control = new Control<Person>();
         //validating user input
         if (string.IsNullOrEmpty(fileName))
             fileName = GenerateCsvFileName();
@@ -59,8 +60,7 @@ public partial class MainWindow
             builder += t => t.BuildEmail();
 
         //calling the method to generate and write onto csv file
-        var result = Control<Person>.GeneratePersonsAndWriteToCsv(amountOfRecordsToGenerate, builder, fileName);
-
+        var result = control.GeneratePersonsAndWriteToCsv(amountOfRecordsToGenerate, builder, fileName);
         if (result.IsCompletedSuccessfully)
         {
             var confirmOpenFileMessageBox = MessageBox.Show("Would you like to open your csv file?",

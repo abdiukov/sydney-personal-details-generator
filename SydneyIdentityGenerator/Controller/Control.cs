@@ -1,5 +1,6 @@
 ﻿using Controller.Models;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -8,13 +9,13 @@ public class Control<T> where T : Person
 {
     public delegate void BuildInstructions(T t);
 
-    public static async Task GeneratePersonsAndWriteToCsv(int amountToGenerate, BuildInstructions buildDelegate, string fileName)
+    public async Task GeneratePersonsAndWriteToCsv(int amountToGenerate, BuildInstructions buildDelegate, string fileName)
     {
         var records = GeneratePersons(amountToGenerate, buildDelegate);
         await CsvFileWriter.Write(fileName, records);
     }
 
-    private static IEnumerable GeneratePersons(int amountToGenerate, BuildInstructions buildDelegate)
+    public static IEnumerable GeneratePersons(int amountToGenerate, BuildInstructions? buildDelegate)
     {
         return Enumerable.Range(1, amountToGenerate).Select(i =>
             {
@@ -26,7 +27,9 @@ public class Control<T> where T : Person
                 else
                     personToGenerate = new Female();
 
-                buildDelegate((T)personToGenerate);
+                if (buildDelegate != null) 
+                    buildDelegate((T)personToGenerate);
+
                 return personToGenerate;
             });
     }
