@@ -12,14 +12,9 @@ namespace UI;
 
 public partial class MainWindow
 {
-    private readonly Regex _numberRegex = new("^[1-9][0-9]*$");
+    public MainWindow() => InitializeComponent();
 
-    public MainWindow()
-    {
-        InitializeComponent();
-    }
-
-    private void Btn_GenerateCSV_ClickAsync(object sender, RoutedEventArgs e)
+    private void ProcessUserInput()
     {
         //defining
         var fileName = TextBoxOutputFileName?.Text;
@@ -61,6 +56,7 @@ public partial class MainWindow
 
         //calling the method to generate and write onto csv file
         var result = control.GeneratePersonsAndWriteToCsv(amountOfRecordsToGenerate, builder, fileName);
+        result.Wait();
         if (result.IsCompletedSuccessfully)
         {
             var confirmOpenFileMessageBox = MessageBox.Show("Would you like to open your csv file?",
@@ -77,6 +73,17 @@ public partial class MainWindow
         }
     }
 
+    private void Btn_GenerateCSV_ClickAsync(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            ProcessUserInput();
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show(ex.Message);
+        }
+    }
+
     string GenerateCsvFileName() => $"{DateTime.Now.Ticks}";
-    void NumberValidationTextBox(object sender, TextCompositionEventArgs e) => e.Handled = !_numberRegex.IsMatch(e.Text);
 }
