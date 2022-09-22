@@ -120,4 +120,4 @@ public class MaleTests
         // Assert
         Assert.IsNotNull(_male.DateOfBirth);
     }
-}    
+}

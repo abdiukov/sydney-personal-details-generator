@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Controller;
+﻿using Controller;
 using Controller.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -14,7 +13,7 @@ public class ControlTests
         // Arrange
 
         // Act
-        var persons = Control<Person>.GeneratePersons(0, null);
+        var persons = Control.GeneratePersons(0, null);
 
         // Assert
         var personsCount = ((IEnumerable<Person>)persons).Count();
@@ -27,7 +26,7 @@ public class ControlTests
         // Arrange
 
         // Act
-        var persons = Control<Person>.GeneratePersons(10, null);
+        var persons = Control.GeneratePersons(10, null);
 
         // Assert
         var personsCount = ((IEnumerable<Person>)persons)?.Count();
@@ -38,7 +37,7 @@ public class ControlTests
     public void GeneratePersonsShouldWorkIfDelegateContainsEverything()
     {
         // Arrange
-        Control<Person>.BuildInstructions buildInstructions;
+        Control.BuildInstructions buildInstructions;
 
         buildInstructions = t => t.BuildFirstName();
         buildInstructions += t => t.BuildLastName();
@@ -50,18 +49,18 @@ public class ControlTests
 
         // Act
 
-        var persons = Control<Person>.GeneratePersons(10, buildInstructions);
+        var persons = Control.GeneratePersons(10, buildInstructions);
 
         // Assert
 
         foreach (Person person in persons)
         {
-           Assert.IsNotNull(person.Address);
-           Assert.IsNotNull(person.DateOfBirth);
-           Assert.IsNotNull(person.Email);
-           Assert.IsNotNull(person.FirstName);
-           Assert.IsNotNull(person.LastName);
-           Assert.IsNotNull(person.PhoneNumber);
+            Assert.IsNotNull(person.Address);
+            Assert.IsNotNull(person.DateOfBirth);
+            Assert.IsNotNull(person.Email);
+            Assert.IsNotNull(person.FirstName);
+            Assert.IsNotNull(person.LastName);
+            Assert.IsNotNull(person.PhoneNumber);
         }
 
     }

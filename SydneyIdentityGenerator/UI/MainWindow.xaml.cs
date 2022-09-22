@@ -1,12 +1,8 @@
-﻿using Controller;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
-using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using Controller.Models;
+using Control = Controller.Control;
 
 namespace UI;
 
@@ -19,8 +15,8 @@ public partial class MainWindow
         //defining
         var fileName = TextBoxOutputFileName?.Text;
         var amountOfRecordsToGenerate = int.Parse(TextBoxNumberOfRecords.Text);
-        Control<Person>.BuildInstructions builder = null;
-        var control = new Control<Person>();
+        Control.BuildInstructions builder = null;
+        var control = new Control();
         //validating user input
         if (string.IsNullOrEmpty(fileName))
             fileName = GenerateCsvFileName();

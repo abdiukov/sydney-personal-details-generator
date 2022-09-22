@@ -1,21 +1,20 @@
 ﻿using Controller.Models;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Controller;
-public class Control<T> where T : Person
+public class Control
 {
-    public delegate void BuildInstructions(T t);
+    public delegate void BuildInstructions(Person t);
 
-    public async Task GeneratePersonsAndWriteToCsv(int amountToGenerate, BuildInstructions buildDelegate, string fileName)
+    public async Task GeneratePersonsAndWriteToCsv(int amountToGenerate, BuildInstructions builder, string fileName)
     {
-        var records = GeneratePersons(amountToGenerate, buildDelegate);
+        var records = GeneratePersons(amountToGenerate, builder);
         await CsvFileWriter.Write(fileName, records);
     }
 
-    public static IEnumerable GeneratePersons(int amountToGenerate, BuildInstructions? buildDelegate)
+    public static IEnumerable GeneratePersons(int amountToGenerate, BuildInstructions? builder)
     {
         return Enumerable.Range(1, amountToGenerate).Select(i =>
             {
@@ -27,8 +26,8 @@ public class Control<T> where T : Person
                 else
                     personToGenerate = new Female();
 
-                if (buildDelegate != null) 
-                    buildDelegate((T)personToGenerate);
+                if (builder != null)
+                    builder(personToGenerate);
 
                 return personToGenerate;
             });
