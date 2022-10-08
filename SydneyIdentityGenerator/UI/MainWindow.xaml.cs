@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
+using System.Threading.Tasks;
 using System.Windows;
 using Control = Controller.Control;
 
@@ -8,24 +8,21 @@ namespace UI;
 
 public partial class MainWindow
 {
-    public MainWindow() => InitializeComponent();
+    readonly Control _control;
+    public MainWindow()
+    {
+        InitializeComponent();
+        _control = new Control();
+    }
 
-    private void ProcessUserInput()
+    private async Task ProcessUserInput()
     {
         //defining
-        var fileName = TextBoxOutputFileName?.Text;
+        var fileName = GenerateCsvFileName();
         var amountOfRecordsToGenerate = int.Parse(TextBoxNumberOfRecords.Text);
         Control.BuildInstructions builder = null;
-        var control = new Control();
+
         //validating user input
-        if (string.IsNullOrEmpty(fileName))
-            fileName = GenerateCsvFileName();
-
-        fileName += ".csv";
-
-        if (File.Exists(fileName))
-            fileName = GenerateCsvFileName();
-
         if (amountOfRecordsToGenerate < 1)
             throw new InvalidOperationException("The number in \"Number of records to generate\" field has to be at least 1");
 
@@ -51,29 +48,26 @@ public partial class MainWindow
             builder += t => t.BuildEmail();
 
         //calling the method to generate and write onto csv file
-        var result = control.GeneratePersonsAndWriteToCsv(amountOfRecordsToGenerate, builder, fileName);
-        result.Wait();
-        if (result.IsCompletedSuccessfully)
-        {
-            var confirmOpenFileMessageBox = MessageBox.Show("Would you like to open your csv file?",
-                "The file has been successfully created.", MessageBoxButton.YesNo, MessageBoxImage.Information);
+        await _control.GeneratePersonsAndWriteToCsv(amountOfRecordsToGenerate, builder, fileName);
 
-            if (confirmOpenFileMessageBox is MessageBoxResult.Yes)
+        //showing confirmation message to user
+        var confirmOpenFileMessageBox = MessageBox.Show("Would you like to open your csv file?",
+            "The file has been successfully created.", MessageBoxButton.YesNo, MessageBoxImage.Information);
+        if (confirmOpenFileMessageBox is MessageBoxResult.Yes)
+        {
+            var fileOpener = new Process
             {
-                var fileOpener = new Process
-                {
-                    StartInfo = { FileName = "explorer", Arguments = $"\"{fileName}\"" }
-                };
-                fileOpener.Start();
-            }
+                StartInfo = { FileName = "explorer", Arguments = $"\"{fileName}\"" }
+            };
+            fileOpener.Start();
         }
     }
 
-    private void Btn_GenerateCSV_ClickAsync(object sender, RoutedEventArgs e)
+    private async void Btn_GenerateCSV_ClickAsync(object sender, RoutedEventArgs e)
     {
         try
         {
-            ProcessUserInput();
+            await ProcessUserInput();
         }
         catch (Exception ex)
         {
@@ -81,5 +75,5 @@ public partial class MainWindow
         }
     }
 
-    string GenerateCsvFileName() => $"{DateTime.Now.Ticks}";
+    string GenerateCsvFileName() => $"{DateTime.Now.Ticks}.csv";
 }

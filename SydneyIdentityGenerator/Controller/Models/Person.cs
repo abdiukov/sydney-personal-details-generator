@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Controller.Models;
+﻿namespace Controller.Models;
 
 public abstract class Person
 {
@@ -9,20 +7,16 @@ public abstract class Person
     public virtual string Address { get; set; }
     public virtual string PhoneNumber { get; set; }
     public virtual string Email { get; set; }
-    public virtual DateTime? DateOfBirth { get; set; }
+    public virtual string DateOfBirth { get; set; }
     public virtual string Gender { get; set; }
 
     #region Methods could be overriden if you want to change how Person gets created
     public virtual void BuildFirstName() => FirstName = Helper.NameGenerator.GenerateRandomFirstName();
     public virtual void BuildLastName() => LastName = Helper.NameGenerator.GenerateRandomLastName();
     public virtual void BuildAddress() => Address = Helper.AddressGenerator.GenerateRandomSydneyAddress();
-    public virtual void BuildPhoneNumber() => PhoneNumber = $"04{Helper.Random.Next(1000000, 10000000)}";
+    public virtual void BuildPhoneNumber() => PhoneNumber = $"+61 {Helper.Random.Next(100000000, 1000000000)}";
     public virtual void BuildEmail() => Email = $"{FirstName ?? Helper.NameGenerator.GenerateRandomFirstName()}.{LastName ?? Helper.NameGenerator.GenerateRandomLastName()}@gmail.com";
-    public virtual void BuildDateOfBirth() => DateOfBirth = new DateTime(
-        year: 1950 + Helper.Random.Next(0, 53),
-        month: Helper.Random.Next(1, 13),
-        day: Helper.Random.Next(1, 29)
-    );
+    public virtual void BuildDateOfBirth() => DateOfBirth = $"{1950 + Helper.Random.Next(0, 53)}-{Helper.Random.Next(1, 13)}-{Helper.Random.Next(1, 29)}";
     public virtual void BuildGender() => Gender = "non-binary";
     #endregion
 }

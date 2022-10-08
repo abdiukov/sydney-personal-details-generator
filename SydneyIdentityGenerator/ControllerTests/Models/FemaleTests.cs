@@ -79,7 +79,7 @@ public class FemaleTests
     }
 
     [TestMethod]
-    public void BuildPhoneNumberShouldReturnPhoneNumberWithLength9()
+    public void BuildPhoneNumberShouldReturnPhoneNumberWithLength13()
     {
         // Arrange
 
@@ -87,7 +87,7 @@ public class FemaleTests
         _female.BuildPhoneNumber();
 
         // Assert
-        Assert.AreEqual(9, _female.PhoneNumber.Length);
+        Assert.AreEqual(13, _female.PhoneNumber.Length);
     }
 
     [TestMethod]

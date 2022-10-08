@@ -37,9 +37,6 @@
             <ComboBoxItem>Sydney, NSW</ComboBoxItem>
         </ComboBox>
 
-        <Label Content="Name of output file: " Grid.Row="2" Grid.Column="0"></Label>
-        <TextBox x:Name="TextBoxOutputFileName" Grid.Row="2" Grid.Column="1"></TextBox>
-
         <Label Content="Choose fields to be included in csv file: " Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"></Label>
 
         <CheckBox x:Name="CheckBoxFirstName" Margin="10" Content="First name" Grid.Row="5" Grid.Column="0"></CheckBox>
