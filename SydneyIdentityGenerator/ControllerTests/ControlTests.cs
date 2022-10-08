@@ -29,7 +29,7 @@ public class ControlTests
         var persons = Control.GeneratePersons(10, null);
 
         // Assert
-        var personsCount = ((IEnumerable<Person>)persons)?.Count();
+        var personsCount = ((IEnumerable<Person>)persons).Count();
         Assert.AreEqual(expected: 10, actual: personsCount);
     }
 
@@ -37,19 +37,19 @@ public class ControlTests
     public void GeneratePersonsShouldWorkIfDelegateContainsEverything()
     {
         // Arrange
-        Control.BuildInstructions buildInstructions;
+        Control.Builder? builder = null;
 
-        buildInstructions = t => t.BuildFirstName();
-        buildInstructions += t => t.BuildLastName();
-        buildInstructions += t => t.BuildAddress();
-        buildInstructions += t => t.BuildPhoneNumber();
-        buildInstructions += t => t.BuildDateOfBirth();
-        buildInstructions += t => t.BuildGender();
-        buildInstructions += t => t.BuildEmail();
+        builder += t => t.BuildFirstName();
+        builder += t => t.BuildLastName();
+        builder += t => t.BuildAddress();
+        builder += t => t.BuildPhoneNumber();
+        builder += t => t.BuildDateOfBirth();
+        builder += t => t.BuildGender();
+        builder += t => t.BuildEmail();
 
         // Act
 
-        var persons = Control.GeneratePersons(10, buildInstructions);
+        var persons = Control.GeneratePersons(10, builder);
 
         // Assert
 

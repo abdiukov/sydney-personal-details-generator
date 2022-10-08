@@ -8,7 +8,7 @@ namespace UI;
 
 public partial class MainWindow
 {
-    readonly Control _control;
+    private readonly Control _control;
     public MainWindow()
     {
         InitializeComponent();
@@ -20,7 +20,7 @@ public partial class MainWindow
         //defining
         var fileName = GenerateCsvFileName();
         var amountOfRecordsToGenerate = int.Parse(TextBoxNumberOfRecords.Text);
-        Control.BuildInstructions builder = null;
+        Control.Builder builder = null;
 
         //validating user input
         if (amountOfRecordsToGenerate < 1)
@@ -75,5 +75,5 @@ public partial class MainWindow
         }
     }
 
-    string GenerateCsvFileName() => $"{DateTime.Now.Ticks}.csv";
+    public static string GenerateCsvFileName() => $"{DateTime.Now.Ticks}.csv";
 }

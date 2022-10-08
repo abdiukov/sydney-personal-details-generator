@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace ControllerTests;
 
 [TestClass]
-class HelperTests
+public class HelperTests
 {
     [TestMethod]
     public void RandomShouldNotBeNull()

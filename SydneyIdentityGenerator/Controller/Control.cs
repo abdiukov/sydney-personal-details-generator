@@ -4,17 +4,19 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Controller;
+
+#nullable enable
 public class Control
 {
-    public delegate void BuildInstructions(Person t);
+    public delegate void Builder(Person t);
 
-    public async Task GeneratePersonsAndWriteToCsv(int amountToGenerate, BuildInstructions builder, string fileName)
+    public async Task GeneratePersonsAndWriteToCsv(int amountToGenerate, Builder? builder, string fileName)
     {
         var records = GeneratePersons(amountToGenerate, builder);
         await CsvFileWriter.Write(fileName, records);
     }
 
-    public static IEnumerable GeneratePersons(int amountToGenerate, BuildInstructions? builder)
+    public static IEnumerable GeneratePersons(int amountToGenerate, Builder? builder)
     {
         return Enumerable.Range(1, amountToGenerate).Select(i =>
             {
@@ -26,8 +28,7 @@ public class Control
                 else
                     personToGenerate = new Female();
 
-                if (builder != null)
-                    builder(personToGenerate);
+                builder?.Invoke(personToGenerate);
 
                 return personToGenerate;
             });
