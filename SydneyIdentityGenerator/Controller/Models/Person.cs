@@ -9,7 +9,7 @@ public abstract class Person
     public virtual string Address { get; set; }
     public virtual string PhoneNumber { get; set; }
     public virtual string Email { get; set; }
-    public virtual DateTime DateOfBirth { get; set; }
+    public virtual DateTime? DateOfBirth { get; set; }
     public virtual string Gender { get; set; }
 
     #region Methods could be overriden if you want to change how Person gets created
