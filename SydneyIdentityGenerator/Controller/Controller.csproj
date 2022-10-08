@@ -2,14 +2,12 @@
 
 	<PropertyGroup>
 		<TargetFramework>net6.0</TargetFramework>
+		<DebugType>embedded</DebugType>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Remove="sydney_addresses.txt" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<Content Include="sydney_addresses.txt">
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>
