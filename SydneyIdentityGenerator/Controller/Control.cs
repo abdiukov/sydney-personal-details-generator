@@ -1,4 +1,5 @@
 ﻿using Controller.Models;
+using System;
 using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,21 +14,21 @@ public class Control
     public async Task GeneratePersonsAndWriteToCsv(int amountToGenerate, Builder? builder, string fileName)
     {
         var records = GeneratePersons(amountToGenerate, builder);
-        await CsvFileWriter.Write(fileName, records);
+        await CsvFileWriter.Write(fileName, records).ConfigureAwait(false);
     }
 
     public static IEnumerable GeneratePersons(int amountToGenerate, Builder? builder)
     {
-        return Enumerable.Range(1, amountToGenerate).Select(i =>
+        return Enumerable.Range(1, amountToGenerate).Select(_ =>
             {
-                Person personToGenerate;
-
                 // Roughly 50/50 chance here of generating either a male or a female
-                if (i % 2 == 0)
-                    personToGenerate = new Male();
-                else
-                    personToGenerate = new Female();
+                Person personToGenerate = Random.Shared.Next(0, 2) switch
+                {
+                    0 => new Male(),
+                    _ => new Female()
+                };
 
+                // Build the Person
                 builder?.Invoke(personToGenerate);
 
                 return personToGenerate;
