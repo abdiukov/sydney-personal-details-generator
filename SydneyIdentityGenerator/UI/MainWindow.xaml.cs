@@ -17,42 +17,43 @@ public partial class MainWindow
 
     private async Task ProcessUserInput()
     {
-        //defining
+        // Defining
         var fileName = GenerateCsvFileName();
         var amountOfRecordsToGenerate = int.Parse(TextBoxNumberOfRecords.Text);
         Control.Builder builder = null;
 
-        //validating user input
+        // Validating user input
         if (amountOfRecordsToGenerate < 1)
             throw new InvalidOperationException("The number in \"Number of records to generate\" field has to be at least 1");
 
         if (CheckBoxFirstName.IsChecked == true)
-            builder += t => t.BuildFirstName();
+            builder += x => x.BuildFirstName();
 
         if (CheckBoxLastName.IsChecked == true)
-            builder += t => t.BuildLastName();
+            builder += x => x.BuildLastName();
 
         if (CheckBoxAddress.IsChecked == true)
-            builder += t => t.BuildAddress();
+            builder += x => x.BuildAddress();
 
         if (CheckBoxPhoneNumber.IsChecked == true)
-            builder += t => t.BuildPhoneNumber();
+            builder += x => x.BuildPhoneNumber();
 
         if (CheckBoxDateOfBirth.IsChecked == true)
-            builder += t => t.BuildDateOfBirth();
+            builder += x => x.BuildDateOfBirth();
 
         if (CheckBoxGender.IsChecked == true)
-            builder += t => t.BuildGender();
+            builder += x => x.BuildGender();
 
         if (CheckBoxEmail.IsChecked == true)
-            builder += t => t.BuildEmail();
+            builder += x => x.BuildEmail();
 
-        //calling the method to generate and write onto csv file
-        await _control.GeneratePersonsAndWriteToCsv(amountOfRecordsToGenerate, builder, fileName);
+        // Calling method to generate and write onto csv file
+        await _control.GeneratePersonsAndWriteToFile(amountOfRecordsToGenerate, builder, fileName);
 
-        //showing confirmation message to user
-        var confirmOpenFileMessageBox = MessageBox.Show("Would you like to open your csv file?",
-            "The file has been successfully created.", MessageBoxButton.YesNo, MessageBoxImage.Information);
+        // Showing confirmation message to user
+        var confirmOpenFileMessageBox = MessageBox.Show("Would you like to open it now?",
+            $"File {fileName} has been successfully created.", MessageBoxButton.YesNo, MessageBoxImage.Information);
+
         if (confirmOpenFileMessageBox is MessageBoxResult.Yes)
         {
             var fileOpener = new Process
@@ -61,6 +62,7 @@ public partial class MainWindow
             };
             fileOpener.Start();
         }
+
     }
 
     private async void Btn_GenerateCSV_ClickAsync(object sender, RoutedEventArgs e)
@@ -75,5 +77,5 @@ public partial class MainWindow
         }
     }
 
-    public static string GenerateCsvFileName() => $"{DateTime.Now.Ticks}.csv";
+    private static string GenerateCsvFileName() => $"{DateTime.Now.Ticks}.csv";
 }

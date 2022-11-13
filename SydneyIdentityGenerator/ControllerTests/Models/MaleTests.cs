@@ -39,7 +39,7 @@ public class MaleTests
         _male.BuildGender();
 
         // Assert
-        Assert.AreEqual("male", _male.Gender);
+        Assert.AreEqual("Male", _male.Gender);
     }
 
     [TestMethod]
@@ -66,7 +66,7 @@ public class MaleTests
         // Arrange
         var addressGeneratorMock = new Mock<IAddressGenerator>();
         addressGeneratorMock
-            .Setup(x => x.GenerateRandomSydneyAddress())
+            .Setup(x => x.GetRandomAddress())
             .Returns("123 Church Street, Parramatta, NSW 2150");
 
         Helper.AddressGenerator = addressGeneratorMock.Object;
@@ -75,7 +75,7 @@ public class MaleTests
         _male.BuildAddress();
 
         // Assert
-        addressGeneratorMock.Verify(x => x.GenerateRandomSydneyAddress(), Times.Once);
+        addressGeneratorMock.Verify(x => x.GetRandomAddress(), Times.Once);
         Assert.AreEqual("123 Church Street, Parramatta, NSW 2150", _male.Address);
     }
 

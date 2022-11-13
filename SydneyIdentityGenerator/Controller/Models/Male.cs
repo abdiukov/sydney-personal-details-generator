@@ -3,5 +3,5 @@
 public class Male : Person
 {
     public override void BuildFirstName() => FirstName = Helper.NameGenerator.GenerateRandomMaleFirstName();
-    public override void BuildGender() => Gender = "male";
+    public override void BuildGender() => Gender = "Male";
 }

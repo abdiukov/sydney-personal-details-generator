@@ -30,7 +30,7 @@
         </Grid.RowDefinitions>
 
         <Label Content="Number of records to generate: " Grid.Row="0" Grid.Column="0"></Label>
-        <TextBox x:Name="TextBoxNumberOfRecords" Text="1" Grid.Row="0" Grid.Column="1"></TextBox>
+        <TextBox x:Name="TextBoxNumberOfRecords" Text="1000" Grid.Row="0" Grid.Column="1"></TextBox>
 
         <Label Content="Region: " Grid.Row="1" Grid.Column="0"></Label>
         <ComboBox x:Name="ComboBoxAvailableRegions" Grid.Row="1" Grid.Column="1" SelectedIndex="0">

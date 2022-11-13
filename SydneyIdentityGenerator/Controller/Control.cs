@@ -11,10 +11,10 @@ public class Control
 {
     public delegate void Builder(Person t);
 
-    public async Task GeneratePersonsAndWriteToCsv(int amountToGenerate, Builder? builder, string fileName)
+    public async Task GeneratePersonsAndWriteToFile(int amountToGenerate, Builder? builder, string fileName)
     {
         var records = GeneratePersons(amountToGenerate, builder);
-        await CsvFileWriter.Write(fileName, records).ConfigureAwait(false);
+        await CsvFileWriter.WriteToFile(fileName, records).ConfigureAwait(false);
     }
 
     public static IEnumerable GeneratePersons(int amountToGenerate, Builder? builder)
