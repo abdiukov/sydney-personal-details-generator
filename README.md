@@ -1,11 +1,11 @@
-# sydney-bulk-identity-generator
-### Perfect for filling your database with dummy data that looks real!
+# sydney-personal-details-generator
+### Generate thousands of personal details with 1 click!
 
-Small program that generates personal details, such as address, full name, phone number, date of birth, gender, email for a person living in Sydney, Australia.
+This app can create a large amount of randomly generated personal details, including: address, full name, phone number, date of birth, gender, and email.
 
-The user can choose how many details they wish to generate, and the name of the output .csv file.
+The application outputs generated details into a csv file that can be opened in Excel or any text editor.
 
-You can then import that .csv file into your database, for more information read:
+This could be pretty useful for filling your database with dummy data that looks real; If you need to do that, please see:
 
 - MySQL - https://dev.mysql.com/doc/workbench/en/wb-admin-export-import-table.html
 - Microsoft SQL Server - https://docs.microsoft.com/en-us/sql/relational-databases/import-export/import-flat-file-wizard?view=sql-server-ver15
