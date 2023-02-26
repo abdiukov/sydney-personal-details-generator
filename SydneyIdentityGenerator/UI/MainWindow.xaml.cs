@@ -1,5 +1,4 @@
-﻿using Controller;
-using System;
+﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using System.Windows;
@@ -49,8 +48,7 @@ public partial class MainWindow
             builder += x => x.BuildEmail();
 
         // Calling method to generate and write onto csv file
-        var records = GeneratePersons(amountToGenerate, builder);
-        await CsvFileWriter.WriteToFile(fileName, records).ConfigureAwait(false);
+        await _control.GeneratePersonsAndWriteToFile(amountOfRecordsToGenerate, builder, fileName);
 
         // Showing confirmation message to user
         var confirmOpenFileMessageBox = MessageBox.Show("Would you like to open it now?",
