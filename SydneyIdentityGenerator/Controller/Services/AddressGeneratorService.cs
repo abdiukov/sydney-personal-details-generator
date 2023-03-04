@@ -6,10 +6,10 @@ using Controller.Services.Interfaces;
 namespace Controller.Services;
 public class AddressGeneratorService : IAddressGeneratorService
 {
-    // A NoSQL database could be used here, instead of storing addresses in a text file.
     private readonly IReadOnlyList<string> ReadFileLinesList;
     public AddressGeneratorService(string addressFileName)
     {
+        // A NoSQL database could be used here, instead of storing addresses in a text file.
         var fileName = addressFileName ?? Constants.DefaultAddressFileName;
         ReadFileLinesList = File.ReadAllLines(fileName);
     }

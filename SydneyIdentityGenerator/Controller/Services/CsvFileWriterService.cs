@@ -1,20 +1,19 @@
 ﻿using System.Collections;
-using CsvHelper;
 using System.Threading.Tasks;
-using System;
-using System.IO;
-using System.Globalization;
+using Controller.Services.Interfaces;
 
 namespace Controller.Services;
 public class CsvFileWriterService
 {
-    /*
-     * TODO: find a way to use factory
-     */
+    private ICsvWriterFactory _csvWriterFactory;
+    public CsvFileWriterService(ICsvWriterFactory factory) 
+    {
+        _csvWriterFactory = factory;
+    }
+
     public async Task WriteToFile(string fileName, IEnumerable recordsToWrite)
     {
-        await using var streamWriter = new StreamWriter(fileName);
-        await using var csvWriter = new CsvWriter(streamWriter, CultureInfo.InvariantCulture);
+        var csvWriter = _csvWriterFactory.Create(fileName);
 
         await csvWriter.WriteRecordsAsync(recordsToWrite);
     }
