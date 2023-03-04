@@ -49,7 +49,7 @@ public partial class MainWindow
             builder += x => x.BuildEmail();
 
         // Calling method to generate and write onto csv file
-        var records = GeneratePersons(amountToGenerate, builder);
+        var records = GeneratePersons(amountOfRecordsToGenerate, builder);
         await CsvFileWriter.WriteToFile(fileName, records).ConfigureAwait(false);
 
         // Showing confirmation message to user

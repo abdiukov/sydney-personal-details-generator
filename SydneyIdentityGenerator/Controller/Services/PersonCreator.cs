@@ -8,7 +8,7 @@ namespace Controller.Services;
 
 public class PersonCreator : IPersonCreator
 {
-    public IEnumerable<Person> Create(int amountToGenerate, IPersonCreator.Builder? builder)
+    public IEnumerable<Person> Create(int amountToGenerate, IPersonCreator.Builder builder)
     {
         return Enumerable.Range(1, amountToGenerate).Select(_ =>
         {
@@ -20,7 +20,7 @@ public class PersonCreator : IPersonCreator
             };
 
             // Build the Person
-            builder?.Invoke(personToGenerate);
+            builder(personToGenerate);
 
             return personToGenerate;
         });

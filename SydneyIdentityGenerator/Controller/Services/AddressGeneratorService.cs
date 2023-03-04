@@ -4,16 +4,15 @@ using System.IO;
 using Controller.Services.Interfaces;
 
 namespace Controller.Services;
-public class SydneyAddressGeneratorService : IAddressGeneratorService
+public class AddressGeneratorService : IAddressGeneratorService
 {
     // A NoSQL database could be used here, instead of storing addresses in a text file.
-    private readonly IReadOnlyList<string> ReadFileLinesList = File.ReadAllLines(_addressFileName);
-    private string _addressFileName = "sydney_addresses.txt";
-    public SydneyAddressGeneratorService(string fileName)
+    private readonly IReadOnlyList<string> ReadFileLinesList;
+    public AddressGeneratorService(string addressFileName)
     {
-        _addressFileName = fileName;
+        var fileName = addressFileName ?? Constants.DefaultAddressFileName;
+        ReadFileLinesList = File.ReadAllLines(fileName);
     }
-
 
     public string GetRandomAddress()
     {
