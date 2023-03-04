@@ -6,5 +6,5 @@ namespace Controller.Services.Interfaces;
 public interface IPersonCreator
 {
     public delegate void Builder(Person t);
-    IEnumerable<Person> Create(int amountToGenerate, Builder? builder);
+    IEnumerable<Person> Create(int amountToGenerate, Builder builder);
 }
