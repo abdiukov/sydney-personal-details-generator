@@ -48,11 +48,9 @@ public class ControlTests
         builder += t => t.BuildEmail();
 
         // Act
-
         var persons = Control.GeneratePersons(10, builder);
 
         // Assert
-
         foreach (Person person in persons)
         {
             Assert.IsNotNull(person.Address);
